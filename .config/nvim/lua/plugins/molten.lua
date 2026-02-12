@@ -6,10 +6,55 @@ return {
         build = ":UpdateRemotePlugins",
         init = function()
             vim.g.molten_image_provider = "image.nvim"
-            vim.g.molten_output_win_max_height = nil
-            vim.g.molten_virt_text_output = true
-            vim.g.molten_virt_lines_off_by_1 = true
-            vim.g.molten_auto_open_output = false
+            vim.g.molten_wrap_output = true
+            vim.keymap.set(
+                "n",
+                "<localleader>mi",
+                ":MoltenInit<CR>",
+                { silent = true, desc = "Initialize the plugin." }
+            )
+            vim.keymap.set(
+                "n",
+                "<localleader>e",
+                ":MoltenEvaluateOperator<CR>",
+                { silent = true, desc = "Run the operator selection." }
+            )
+            vim.keymap.set(
+                "n",
+                "<localleader>rl",
+                ":MoltenEvaluateLine<CR>",
+                { silent = true, desc = "Evaluate the line." }
+            )
+            vim.keymap.set(
+                "n",
+                "<localleader>rr",
+                ":MoltenReevaluateCell<CR>",
+                { silent = true, desc = "Re-evaluate the cell." }
+            )
+            vim.keymap.set(
+                "v",
+                "<localleader>r",
+                ":<C-u>MoltenEvaluateVisual<CR>gv",
+                { silent = true, desc = "Evaluate the visual selection." }
+            )
+            vim.keymap.set(
+                "n",
+                "<localleader>rd",
+                ":MoltenDelete<CR>",
+                { silent = true, desc = "Delete the cell." }
+            )
+            vim.keymap.set(
+                "n",
+                "<localleader>oh",
+                ":MoltenHideOutput<CR>",
+                { silent = true, desc = "Hide the output." }
+            )
+            vim.keymap.set(
+                "n",
+                "<localleader>os",
+                ":noautocmd MoltenEnterOutput<CR>",
+                { silent = true, desc = "Show or enter the output." }
+            )
         end,
     },
 }
