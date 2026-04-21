@@ -54,5 +54,11 @@ return {
             ":noautocmd MoltenEnterOutput<CR>",
             { silent = true, desc = "Show or enter the output." }
         )
+        vim.keymap.set(
+            "n",
+            "<localleader>op",
+            ":MoltenImagePopup<CR>",
+            { silent = true, desc = "Open image in an external viewer." }
+        )
     end,
 }
