@@ -5,7 +5,7 @@ return {
         local jupytext = require("jupytext")
         jupytext.setup({
             jupytext = "jupytext",
-            format = "markdown",
+            format = "py",
             update = true,
             filetype = jupytext.get_filetype,
             new_template = jupytext.default_new_template(),
